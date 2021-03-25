@@ -1,0 +1,18 @@
+
+
+<form method="POST" action="#">
+    {{form.title}}
+{%csrf_token%}
+<input type="submit" name="add task">
+</form>
+
+{% for task in tasks%}
+
+    <a href="{% url 'update' task.id%}"> update</a>
+    <a href="{% url 'delete' task.id%}"> delete</a>
+ 
+   <p> {{task.title}}</p>
+
+
+{%endfor%}
+{{form.errors}}
